@@ -1,0 +1,28 @@
+﻿@model List<Pessoa>
+@{
+    ViewData["Title"] = "Consulta de Pessoa";
+}
+
+<h1 class="text-center mb-4">Consulta de Pessoa</h1>
+
+<table class="table table-striped table-bordered">
+    <thead class="thead-dark">
+        <tr>
+            <th>Nome Fantasia</th>
+            <th>CNPJ/CPF</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var pessoa in Model)
+        {
+            <tr>
+                <td>@pessoa.NomeFantasia</td>
+                <td>@pessoa.CnpjCpf</td>
+                <td>
+                    <a class="btn btn-info btn-sm" asp-action="Detalhes" asp-controller="Pessoa" asp-route-id="@pessoa.PessoaId">Detalhes</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

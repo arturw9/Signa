@@ -1,0 +1,30 @@
+﻿@model Pessoa
+@{
+    ViewData["Title"] = "Detalhe da Pessoa";
+}
+
+<div class="container mt-4">
+    <h1>@ViewData["Title"]</h1>
+
+    <form asp-action="Editar" asp-controller="Pessoa" asp-route-id="@Model.PessoaId" method="post" enctype="multipart/form-data">
+        <div class="form-group mb-3">
+            <label for="pessoaId" class="form-label">Código:</label>
+            <input type="text" id="pessoaId" class="form-control" value="@Model.PessoaId" disabled />
+        </div>
+
+        <div class="form-group mb-3">
+            <label for="nomeFantasia" class="form-label">Nome Fantasia:</label>
+            <input type="text" id="nomeFantasia" name="NomeFantasia" class="form-control" value="@Model.NomeFantasia" required />
+        </div>
+
+        <div class="form-group mb-3">
+            <label for="cnpjCpf" class="form-label">CNPJ/CPF:</label>
+            <input type="text" id="cnpjCpf" class="form-control" value="@Model.CnpjCpf" disabled />
+        </div>
+
+        <div class="d-flex justify-content-between">
+            <button type="submit" class="btn btn-primary">GRAVAR</button>
+            <a href="/Pessoa" class="btn btn-secondary">Sair</a>
+        </div>
+    </form>
+</div>
